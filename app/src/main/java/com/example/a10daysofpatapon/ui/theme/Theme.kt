@@ -1,12 +1,12 @@
-package com.example.compose
+package com.example.a10daysofpatapon.ui.theme
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
-import com.example.a10daysofpatapon.ui.theme.Shapes
-import com.example.a10daysofpatapon.ui.theme.Typography
+
 
 private val LightColors = lightColorScheme(
     primary = md_theme_light_primary,
@@ -73,10 +73,11 @@ private val DarkColors = darkColorScheme(
     scrim = md_theme_dark_scrim,
 )
 
+@SuppressLint("ComposableNaming")
 @Composable
 fun _10DaysOfPataponTheme(
     useDarkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable() () -> Unit
+    content: @Composable () -> Unit
 ) {
     val colors = if (!useDarkTheme) {
         LightColors

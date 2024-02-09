@@ -29,16 +29,16 @@ val Typography = Typography(
     displayLarge = TextStyle(
         fontFamily = Patapon,
         fontWeight = FontWeight.Normal,
-        fontSize = 40.sp
+        fontSize = 30.sp
     ),
     displayMedium = TextStyle(
         fontFamily = Patapon,
         fontWeight = FontWeight.Normal,
-        fontSize = 50.sp
+        fontSize = 40.sp
     ),
     displaySmall = TextStyle(
         fontFamily = Patapon,
         fontWeight = FontWeight.Normal,
-        fontSize = 40.sp
+        fontSize = 30.sp
     )
 )

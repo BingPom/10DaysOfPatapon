@@ -22,5 +22,6 @@
     <string name="robopon_description">Robopons are powerful robotic melee units that fight with their extraordinarily large robotic arms. They can do relatively high damage, and have decent defense but can take damage. If using PonChaka~PonPon, they will throw big rocks. Each Robopon will throw 1 rock. A full Robopon squad consists of 3 Robopons. Robopons are one of the most powerful units. Like Megapons, \"robo\" has no Japanese meaning. Instead it is originated from the word \"robot\", which explains their robotic arms.</string>
     <string name="mahopon_name">Mahopon</string>
     <string name="mahopon_description">The Patapon tribe\'s spellcasters. They wields a variety of staffs or scepters and wears boots. Mahopons are frail, but are able to perform a variety of duties for the team. Unlike most Patapon units, the Mahopons\' abilities change depending on what staff they currently wield. A full Mahopon squad consists of 3 Mahopons. There are approximately 11 Mahopon magic spells with a wide variety of effects, like: restoring HP; cure status effects, boosting defenses, causing explosions, fire or thunderstorms, summoning hails of meteors, etc. \"Maho\" (魔) means \"spell\" in Japanese.</string>
+    <string name="top_bar_title">10 DAYS OF</string>
 
 </resources>

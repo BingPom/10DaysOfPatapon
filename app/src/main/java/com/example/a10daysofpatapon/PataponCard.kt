@@ -4,6 +4,7 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,13 +30,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.a10daysofpatapon.model.Datasource
 import com.example.a10daysofpatapon.model.Patapon
-import com.example.compose._10DaysOfPataponTheme
+import com.example.a10daysofpatapon.ui.theme._10DaysOfPataponTheme
 
 @Composable
 fun PataponCard(
@@ -47,7 +50,8 @@ fun PataponCard(
 
     Card(
         modifier = modifier,
-        elevation = CardDefaults.cardElevation(dimensionResource(id = R.dimen.card_elevation))
+        elevation = CardDefaults.cardElevation(dimensionResource(id = R.dimen.card_elevation)),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.2f))
     ) {
         Column(
             modifier = Modifier
@@ -131,14 +135,6 @@ fun CardPreview() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {}
-            PataponCard(
-                patapon = Patapon(
-                    name = R.string.hatapon_name,
-                    description = R.string.hatapon_description,
-                    image = R.drawable.hatapon
-                ),
-                dayNumber = 1
-            )
-
+                PataponCard(patapon = Datasource.getData()[0], dayNumber = 1)
     }
 }
