@@ -4,7 +4,7 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,8 +30,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.paint
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -51,7 +52,7 @@ fun PataponCard(
     Card(
         modifier = modifier,
         elevation = CardDefaults.cardElevation(dimensionResource(id = R.dimen.card_elevation)),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer.copy(alpha = 0.2f))
+        colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.seed))
     ) {
         Column(
             modifier = Modifier
@@ -74,12 +75,22 @@ fun PataponCard(
                     ) {
                         Text(
                             text = stringResource(R.string.dayNumber, dayNumber),
-                            style = MaterialTheme.typography.displayMedium
+                            style = MaterialTheme.typography.displayMedium,
+                            color = if (isSystemInDarkTheme()) {
+                                Color.White
+                            } else {
+                                Color.Black
+                            }
                         )
                         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
                         Text(
                             text = stringResource(id = patapon.name),
-                            style = MaterialTheme.typography.displaySmall
+                            style = MaterialTheme.typography.displaySmall,
+                            color = if (isSystemInDarkTheme()) {
+                                Color.White
+                            } else {
+                                Color.Black
+                            }
                         )
                     }
                     ExpandRetractButton(
@@ -100,7 +111,12 @@ fun PataponCard(
                 if (expanded) {
                     Text(
                         text = stringResource(id = patapon.description),
-                        style = MaterialTheme.typography.bodyLarge
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = if (isSystemInDarkTheme()) {
+                            Color.White
+                        } else {
+                            Color.Black
+                        }
                     )
                 }
             }
@@ -121,7 +137,11 @@ private fun ExpandRetractButton(
         Icon(
             imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
             contentDescription = stringResource(id = R.string.expand_button_content_description),
-            tint = MaterialTheme.colorScheme.secondary
+            tint = if (isSystemInDarkTheme()) {
+                Color.White
+            } else {
+                Color.Black
+            },
         )
     }
 }
