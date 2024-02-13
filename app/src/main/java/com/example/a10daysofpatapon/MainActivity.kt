@@ -104,9 +104,11 @@ fun PataponTopBar(modifier: Modifier = Modifier) {
                     } else {
                         Color.Black
                     },
-                    modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.padding_extra_small), end = dimensionResource(
-                        id = R.dimen.padding_extra_small
-                    ))
+                    modifier = Modifier
+                        .padding(
+                            bottom = dimensionResource(id = R.dimen.padding_extra_small),
+                            end = dimensionResource(id = R.dimen.padding_extra_small)
+                        )
                 )
                 Image(
                     painter = painterResource(
