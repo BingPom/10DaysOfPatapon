@@ -99,14 +99,20 @@ fun PataponCard(
                     )
                 }
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
-                Image(
-                    painter = painterResource(id = patapon.image),
-                    contentDescription = null,
-                    Modifier
-                        .fillMaxWidth()
-                        .clip(shape = MaterialTheme.shapes.small),
-                    contentScale = ContentScale.FillWidth
-                )
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Image(
+                        painter = painterResource(id = patapon.image),
+                        contentDescription = null,
+                        Modifier
+                            .height(dimensionResource(id = R.dimen.card_image_height))
+                            .clip(shape = MaterialTheme.shapes.small),
+                        contentScale = ContentScale.Crop,
+                        alignment = Alignment.Center
+                    )
+                }
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
                 if (expanded) {
                     Text(
