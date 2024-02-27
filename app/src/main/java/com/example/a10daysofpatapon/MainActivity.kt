@@ -72,7 +72,7 @@ fun _10DaysOfPataponApp(modifier: Modifier = Modifier) {
                     alpha = 0.3f
                 )
         ) {
-            itemsIndexed(Datasource.getData()) { index, patapon ->
+            itemsIndexed(Datasource().getData()) { index, patapon ->
                 PataponCard(
                     modifier = Modifier.padding(
                         vertical = dimensionResource(id = R.dimen.padding_medium),

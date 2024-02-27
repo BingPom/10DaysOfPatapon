@@ -2,7 +2,7 @@ package com.example.a10daysofpatapon.model
 
 import com.example.a10daysofpatapon.R
 
-object Datasource {
+class Datasource {
     private val patapons = listOf(
         Patapon(
             name = R.string.hatapon_name,

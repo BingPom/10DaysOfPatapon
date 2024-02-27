@@ -29,7 +29,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
@@ -107,8 +106,7 @@ fun PataponCard(
                         painter = painterResource(id = patapon.image),
                         contentDescription = null,
                         Modifier
-                            .height(dimensionResource(id = R.dimen.card_image_height))
-                            .clip(shape = MaterialTheme.shapes.small),
+                            .height(dimensionResource(id = R.dimen.card_image_height)),
                         contentScale = ContentScale.Crop,
                         alignment = Alignment.Center
                     )
@@ -161,6 +159,6 @@ fun CardPreview() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {}
-                PataponCard(patapon = Datasource.getData()[0], dayNumber = 1)
+                PataponCard(patapon = Datasource().getData()[0], dayNumber = 1)
     }
 }
