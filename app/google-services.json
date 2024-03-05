@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "69152977371",
+    "project_id": "daysofpatapon",
+    "storage_bucket": "daysofpatapon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69152977371:android:0d8971b3b61b233881f7fe",
+        "android_client_info": {
+          "package_name": "com.example.a10daysofpatapon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAo-jiQDVKtPekoZYbIxwXbYfy35yv83pA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

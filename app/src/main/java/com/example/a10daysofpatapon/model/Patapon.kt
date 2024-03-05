@@ -4,7 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
 data class Patapon(
-    @StringRes var name: Int,
-    @StringRes var description: Int,
-    @DrawableRes var image: Int
+    var name: String,
+    var description: String,
+    var image: String
 )

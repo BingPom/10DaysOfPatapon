@@ -3,7 +3,6 @@ package com.example.a10daysofpatapon
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,9 +32,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import coil.compose.AsyncImage
 import com.example.a10daysofpatapon.model.Datasource
 import com.example.a10daysofpatapon.model.Patapon
 import com.example.a10daysofpatapon.ui.theme._10DaysOfPataponTheme
@@ -83,7 +82,7 @@ fun PataponCard(
                         )
                         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
                         Text(
-                            text = stringResource(id = patapon.name),
+                            text = patapon.name,
                             style = MaterialTheme.typography.displaySmall,
                             color = if (isSystemInDarkTheme()) {
                                 Color.White
@@ -102,19 +101,19 @@ fun PataponCard(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Image(
-                        painter = painterResource(id = patapon.image),
+                    AsyncImage(
+                        model = patapon.image,
                         contentDescription = null,
                         Modifier
                             .height(dimensionResource(id = R.dimen.card_image_height)),
-                        contentScale = ContentScale.Crop,
+                        contentScale = ContentScale.Fit,
                         alignment = Alignment.Center
                     )
                 }
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
                 if (expanded) {
                     Text(
-                        text = stringResource(id = patapon.description),
+                        text = patapon.description,
                         style = MaterialTheme.typography.bodyLarge,
                         color = if (isSystemInDarkTheme()) {
                             Color.White
@@ -159,6 +158,8 @@ fun CardPreview() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {}
-                PataponCard(patapon = Datasource().getData()[0], dayNumber = 1)
+        var pataponList by remember { mutableStateOf(listOf<Patapon>()) }
+        Datasource().getData { pataponList = it }
+        PataponCard(patapon = pataponList.get(0), dayNumber = 1)
     }
 }

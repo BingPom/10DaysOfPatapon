@@ -1,6 +1,5 @@
 package com.example.a10daysofpatapon
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,6 +19,10 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
@@ -30,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.a10daysofpatapon.model.Datasource
+import com.example.a10daysofpatapon.model.Patapon
 import com.example.a10daysofpatapon.ui.theme._10DaysOfPataponTheme
 
 class MainActivity : ComponentActivity() {
@@ -49,9 +53,11 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@SuppressLint("ComposableNaming")
 @Composable
 fun _10DaysOfPataponApp(modifier: Modifier = Modifier) {
+    var pataponList by remember { mutableStateOf(listOf<Patapon>()) }
+    Datasource().getData { pataponList = it }
+
     Scaffold(
         modifier = modifier
             .fillMaxSize(),
@@ -71,8 +77,10 @@ fun _10DaysOfPataponApp(modifier: Modifier = Modifier) {
                     contentScale = ContentScale.Crop,
                     alpha = 0.3f
                 )
+                .fillMaxSize()
         ) {
-            itemsIndexed(Datasource().getData()) { index, patapon ->
+
+            itemsIndexed(pataponList) { index, patapon ->
                 PataponCard(
                     modifier = Modifier.padding(
                         vertical = dimensionResource(id = R.dimen.padding_medium),
@@ -83,7 +91,6 @@ fun _10DaysOfPataponApp(modifier: Modifier = Modifier) {
                 )
             }
         }
-
     }
 }
 
